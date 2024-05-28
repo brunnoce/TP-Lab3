@@ -13,7 +13,8 @@ const app = Vue.createApp({
                 plataforma: '',
                 estado: ''
             },
-            errores: []
+            errores: [],
+            informacion: []
         }
     },
     computed: {
@@ -53,12 +54,17 @@ const app = Vue.createApp({
                 this.errores.push("Debe seleccionar un estado.");
                 comprobado = false;
             }
+            if (this.nuevoVideojuego.puntaje !== '' && (isNaN(this.nuevoVideojuego.puntaje) || this.nuevoVideojuego.puntaje < 1 || this.nuevoVideojuego.puntaje > 10)) {
+                this.errores.push("El puntaje debe ser un número entre 1 y 10.");
+                comprobado = false;
+            }
 
             return comprobado;
         },
-        mostrarMasInfo(){
-            this.videojuegos.push({...this.nuevoVideojuego});
+        mostrarMasInfo(videojuego) {
+            this.informacion = videojuego;
         }
+        
     },
 });
 

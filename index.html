@@ -17,7 +17,7 @@
                 <input type="text" v-model="nuevoVideojuego.nombre" id="nombre" placeholder="Cualquier Texto"><br>
                 <label for="plataforma">Plataforma:</label>
                 <select v-model="nuevoVideojuego.plataforma" id="plataforma">
-                    <option value="" selected disabled>PC|PlayStation|Xbox One</option>
+                    <option value="" selected disabled>PC | PlayStation | Xbox One</option>
                     <option value="PC">PC</option>
                     <option value="PlayStation">PlayStation</option>
                     <option value="XboxOne">Xbox One</option>
@@ -57,6 +57,8 @@
                     <option value="Completado">Completado</option>
                 </select>
             </div>
+        </div>
+        <div class="containerInfo">
                 <div class="tabla">
                     <table>
                         <thead>
@@ -74,18 +76,26 @@
                                 <td>{{ videojuego.plataforma }}</td>
                                 <td>{{ videojuego.estado }}</td>
                                 <td>{{ videojuego.puntaje }}</td>
-                                <td @click="mostrarMasInfo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                                </td>
+                                <td @click="mostrarMasInfo(videojuego)">
+                                    <svg class="icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                    </svg>
+                                </td>                                                               
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <div class="divVerMas">
+                    <h3>{{ informacion.nombre }}</h3>
+                    <ul>
+                        <li v-if="informacion != ''">Plataforma: {{ informacion.plataforma }}</li>
+                        <li v-if="informacion != ''">Estado: {{ informacion.estado }}</li>
+                        <li v-if="informacion != ''">Puntaje: {{ informacion.puntaje }}</li>
+                    </ul>
+                </div>                 
         </div>
     </div>
-
+</div>
     <script src="main.js"></script>
 </body>
 </html>
