@@ -32,10 +32,31 @@
                 <label for="puntaje">Puntaje:</label>
                 <input type="number" v-model="nuevoVideojuego.puntaje" id="puntaje" placeholder="Puntaje del 1 al 10"><br>
                 <button type="submit">Registrar videojuego</button>
+                <ul v-if="errores.length" class="errores">
+                    <li v-for="error in errores" :key="error">{{ error }}</li>
+                </ul>
             </form>
         </div>
         <div>
             <h3>Videojuegos</h3>
+            <div class="filtro">
+                <label for="filtroNombre">Nombre:</label>
+                <input type="text" v-model="filtro.nombre" id="filtroNombre" placeholder="Filtrar por nombre"><br>
+                <label for="filtroPlataforma">Plataforma:</label>
+                <select v-model="filtro.plataforma" id="filtroPlataforma">
+                    <option value="">Todas</option>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="XboxOne">Xbox One</option>
+                </select> <br>
+                <label for="filtroEstado">Estado:</label>
+                <select v-model="filtro.estado" id="filtroEstado">
+                    <option value="">Todos</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Jugando">Jugando</option>
+                    <option value="Completado">Completado</option>
+                </select>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -43,11 +64,11 @@
                         <th>Plataforma</th>
                         <th>Estado</th>
                         <th>Puntaje</th>
-                        <th>Mas info</th>
+                        <th>Más info</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="videojuego in videojuegos" :key="videojuego.nombre">
+                    <tr v-for="videojuego in videojuegosFiltrados" :key="videojuego.nombre">
                         <td>{{ videojuego.nombre }}</td>
                         <td>{{ videojuego.plataforma }}</td>
                         <td>{{ videojuego.estado }}</td>
