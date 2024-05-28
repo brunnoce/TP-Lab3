@@ -53,10 +53,7 @@ const app = Vue.createApp({
                 this.errores.push("Debe seleccionar un estado.");
                 comprobado = false;
             }
-            if (this.nuevoVideojuego.puntaje === '') {
-                this.errores.push("Debe asignar un puntaje.");
-                comprobado = false;
-            }
+
             return comprobado;
         }
     }

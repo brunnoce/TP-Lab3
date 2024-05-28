@@ -57,26 +57,33 @@
                     <option value="Completado">Completado</option>
                 </select>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Plataforma</th>
-                        <th>Estado</th>
-                        <th>Puntaje</th>
-                        <th>Más info</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="videojuego in videojuegosFiltrados" :key="videojuego.nombre">
-                        <td>{{ videojuego.nombre }}</td>
-                        <td>{{ videojuego.plataforma }}</td>
-                        <td>{{ videojuego.estado }}</td>
-                        <td>{{ videojuego.puntaje }}</td>
-                        <td>// djsajdasjdasj </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="containerInfo">
+                <div class="tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Plataforma</th>
+                                <th>Estado</th>
+                                <th>Puntaje</th>
+                                <th>Más info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="videojuego in videojuegosFiltrados" :key="videojuego.nombre">
+                                <td>{{ videojuego.nombre }}</td>
+                                <td>{{ videojuego.plataforma }}</td>
+                                <td>{{ videojuego.estado }}</td>
+                                <td>{{ videojuego.puntaje }}</td>
+                                <td>// djsajdasjdasj </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="divVerMas">
+
+                </div>
+            </div>
         </div>
     </div>
 
