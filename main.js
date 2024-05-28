@@ -32,7 +32,7 @@ const app = Vue.createApp({
             this.errores = [];
             if (this.comprobar()) {
                 this.videojuegos.push({...this.nuevoVideojuego});
-                console.log('Videojuego agregado:', this.videojuegos);
+                
                 this.nuevoVideojuego.nombre = '';
                 this.nuevoVideojuego.plataforma = '';
                 this.nuevoVideojuego.estado = '';
@@ -55,8 +55,11 @@ const app = Vue.createApp({
             }
 
             return comprobado;
+        },
+        mostrarMasInfo(){
+            this.videojuegos.push({...this.nuevoVideojuego});
         }
-    }
+    },
 });
 
 app.mount('#app');
