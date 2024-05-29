@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de videojuegos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.4.26/dist/vue.global.prod.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Administración de videojuegos</h1>
+        <div>
+            <h3>Nuevo videojuego</h3>
+            <form @submit.prevent="registrarVideojuego">
+                <label for="nombre">Nombre:</label>
+                <input type="text" v-model="nuevoVideojuego.nombre" id="nombre" placeholder="Cualquier Texto"><br>
+                <label for="plataforma">Plataforma:</label>
+                <select v-model="nuevoVideojuego.plataforma" id="plataforma">
+                    <option value="" selected disabled>PC|PlayStation|Xbox One</option>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation">PlayStation</option>
+                    <option value="XboxOne">Xbox One</option>
+                </select> <br>
+                <label for="estado">Estado:</label>
+                <select v-model="nuevoVideojuego.estado" id="estado">
+                    <option value="" selected disabled>Selecciona un estado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Jugando">Jugando</option>
+                    <option value="Completado">Completado</option>
+                </select><br>
+                <label for="puntaje">Puntaje:</label>
+                <input type="number" v-model="nuevoVideojuego.puntaje" id="puntaje" placeholder="Puntaje del 1 al 10"><br>
+                <button type="submit">Registrar videojuego</button>
+            </form>
+        </div>
+        <div>
+            <h3>Videojuegos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Plataforma</th>
+                        <th>Estado</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="videojuego in videojuegos" :key="videojuego.nombre">
+                        <td>{{ videojuego.nombre }}</td>
+                        <td>{{ videojuego.plataforma }}</td>
+                        <td>{{ videojuego.estado }}</td>
+                        <td>{{ videojuego.puntaje }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
